@@ -7,14 +7,16 @@ window.onload = function() {
   const prevBtn = document.querySelector('#prevBtn');
   const nextBtn = document.querySelector('#nextBtn');
 
-  // Numbers
+  // Variables
   let counter = 1;
+  let intervalId;
   const IMAGE_SIZE = carouselImages[0].clientWidth;
-  const TRANSITION_TIME = 0.4;
+  const TRANSITION_TIME = 400;
+  const INTERVAL_TIME = 3000;
 
   // Functions
   function next() {
-    carouselSlide.style.transition = `transform ${TRANSITION_TIME}s ease-in-out`;
+    carouselSlide.style.transition = `transform ${TRANSITION_TIME}ms ease-in-out`;
     counter++;
     carouselSlide.style.transform = `translateX(${-IMAGE_SIZE * counter}px)`;
 
@@ -23,7 +25,7 @@ window.onload = function() {
         carouselSlide.style.transition = 'none';
         counter = 1;
         carouselSlide.style.transform = `translateX(${-IMAGE_SIZE * counter}px)`;
-      }, 400);
+      }, TRANSITION_TIME);
     }
   }
   function prev() {
@@ -36,8 +38,20 @@ window.onload = function() {
         carouselSlide.style.transition = 'none';
         counter = 5;
         carouselSlide.style.transform = `translateX(${-IMAGE_SIZE * counter}px)`;
-      }, 400);
+      }, TRANSITION_TIME);
     }
+  }
+  function setAutoSlide() {
+    intervalId = setInterval(next, INTERVAL_TIME);
+    prevBtn.addEventListener('click', () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(next, INTERVAL_TIME);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(next, INTERVAL_TIME);
+    });
   }
 
   // Main
@@ -45,8 +59,9 @@ window.onload = function() {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
+  // Auto slide
   const isAuto = document.querySelector('.carousel-container').classList.contains('autoSlide');
   if(isAuto) {
-    setInterval(next, 3000);
+    setAutoSlide();
   }
 }

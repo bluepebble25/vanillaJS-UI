@@ -7,11 +7,11 @@
 
 ### 앞으로 추가할 기능
 - 동그라미 아이콘으로 현재 위치 확인, 동그라미 클릭하면 해당 페이지로 이동
-- setIinterval()과 직접 이동하기 버튼 클릭이 충돌해서 어떤 슬라이드는 너무 빠르게 넘어가는 현상 수정
+- ✅setInterval()과 직접 이동하기 버튼 클릭이 충돌해서 어떤 슬라이드는 너무 빠르게 넘어가는 현상 수정
 - 클래스를 통해 옵션 조정할 수 있게 하기 (transition 시간)
 
-## About clientWidth zero problem
-- [내 블로그 참고](https://bluepebble25.tistory.com/20)
+## clientWidth가 zero로 나오는 문제에 관해
+- [내 블로그](https://bluepebble25.tistory.com/20)
 
 ## Reference
 - https://www.youtube.com/watch?v=KcdBOoK3Pfw&t=941s
