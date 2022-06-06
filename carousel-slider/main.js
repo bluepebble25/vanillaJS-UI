@@ -29,7 +29,7 @@ window.onload = function() {
     }
   }
   function prev() {
-    carouselSlide.style.transition = `transform ${TRANSITION_TIME}s ease-in-out`;
+    carouselSlide.style.transition = `transform ${TRANSITION_TIME}ms ease-in-out`;
     counter--;
     carouselSlide.style.transform = `translateX(${-IMAGE_SIZE * counter}px)`;
 
